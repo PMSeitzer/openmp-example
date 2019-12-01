@@ -9,24 +9,28 @@ Creating multithreaded code references the `thinkos.pdf` textbook, chapter 1.
 Exploring different options available in the clang++ compiler
 (defers to gcc compiler)
 
-# Create executable
+1.  Create executable
+```
 clang++ main.cpp -o openmp-example -fopenmp -L/usr/local/opt/llvm/lib
 ./openmp-example
+```
 
-# Add optimization flag 
+2.  Add optimization flag 
+```
 clang++ -O main.cpp -o openmp-example-O -fopenmp -L/usr/local/opt/llvm/lib
 clang++ -O1 main.cpp -o openmp-example-O1 -fopenmp -L/usr/local/opt/llvm/lib
 clang++ -O2 main.cpp -o openmp-example-O2 -fopenmp -L/usr/local/opt/llvm/lib
 clang++ -O3 main.cpp -o openmp-example-O3 -fopenmp -L/usr/local/opt/llvm/lib
+```
 
-# Generate object code
-clang++ main.cpp -c
+3.  Generate object code
+`clang++ main.cpp -c`
 
-# Generate assembly code
-clang++ main.cpp -S
+4.  Generate assembly code
+`clang++ main.cpp -S`
 
-# Execute preprocessor only
-clang++ main.cpp -E > main.E
+5.  Execute preprocessor only
+`clang++ main.cpp -E > main.E`
 
 ## cmake project
 TODO
