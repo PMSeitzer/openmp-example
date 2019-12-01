@@ -24,13 +24,19 @@ clang++ -O3 main.cpp -o openmp-example-O3 -fopenmp -L/usr/local/opt/llvm/lib
 ```
 
 3.  Generate object code
-`clang++ main.cpp -c`
+```
+clang++ main.cpp -c
+```
 
 4.  Generate assembly code
-`clang++ main.cpp -S`
+```
+clang++ main.cpp -S
+```
 
 5.  Execute preprocessor only
-`clang++ main.cpp -E > main.E`
+```
+clang++ main.cpp -E > main.E
+```
 
 ## cmake project
 TODO
