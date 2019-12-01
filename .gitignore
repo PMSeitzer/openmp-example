@@ -1,1 +1,9 @@
 .DS_Store
+main.E
+main.o
+main.s
+openmp-example
+openmp-example-O
+Openmp-example-O1
+Openmp-example-O2
+openmp-example-O3
