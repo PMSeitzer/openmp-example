@@ -1,3 +1,8 @@
+# This project serves as a basic template for developing multithreaded c++ code using
+the OpenMP library.
+
+Creating multithreaded code references the `thinkos.pdf` textbook, chapter 1.
+
 #To build and execute:
 
 ## Plain Project
