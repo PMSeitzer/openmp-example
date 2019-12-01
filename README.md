@@ -46,25 +46,27 @@ TODO
 
 ## `thinkos.pdf` textbook notes
 
- Memory Segments
-(low number memory addresses)
-C --> "Code" or "Text", actual program stored in memory
-C --> "Constant": string literals
-G --> "Global": global variables, declared with "static" keyword
-H --> "Heap" dynamic memory allocation. Grows up towards stack
-S --> "Stack" auto allocation/deallocation
-(high number memory addresses)
+*Memory Segments*
+    (low number memory addresses)
+     C --> "Code" or "Text", actual program stored in memory
+     C --> "Constant": string literals
+     G --> "Global": global variables, declared with "static" keyword
+     H --> "Heap" dynamic memory allocation. Grows up towards stack
+     S --> "Stack" auto allocation/deallocation
+    (high number memory addresses)
 
-MMU = memory managament unit
-TLB = translation lookaside buffer (for page number, page is chunk of memory)
+    MMU = memory managament unit
+    TLB = translation lookaside buffer (for page number, page is chunk of memory)
 
-given VA (virtual address), determine page # + offset --> produce PA (physical address)
+    given VA (virtual address), determine page # + offset --> produce PA (physical address)
 
-MCU --> main memory
+    MCU --> main memory
 
-"inode" --> index node
+    "inode" --> index node
 
-os think of long-term memory as "blocks"
+    os thinks of long-term memory as "blocks"
 
-floating point numbers:
+    floating point numbers:
+```
 (−1)^s * c * 2^q
+```
