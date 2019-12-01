@@ -3,7 +3,7 @@ the OpenMP library.
 
 Creating multithreaded code references the `thinkos.pdf` textbook, chapter 1.
 
-#To build and execute:
+# To build and execute
 
 ## Plain Project
 Exploring different options available in the clang++ compiler
@@ -19,22 +19,24 @@ clang++ -O1 main.cpp -o openmp-example-O1 -fopenmp -L/usr/local/opt/llvm/lib
 clang++ -O2 main.cpp -o openmp-example-O2 -fopenmp -L/usr/local/opt/llvm/lib
 clang++ -O3 main.cpp -o openmp-example-O3 -fopenmp -L/usr/local/opt/llvm/lib
 
-# generate object code
+# Generate object code
 clang++ main.cpp -c
 
-# generate assembly code
+# Generate assembly code
 clang++ main.cpp -S
 
-# execute preprocessor only
+# Execute preprocessor only
 clang++ main.cpp -E > main.E
 
-# cmake project
+## cmake project
 TODO
 
-# qmake project
+## qmake project
 TODO
 
-## Memory Segments
+## `thinkos.pdf` textbook notes
+
+ Memory Segments
 (low number memory addresses)
 C --> "Code" or "Text", actual program stored in memory
 C --> "Constant": string literals
