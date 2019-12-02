@@ -48,9 +48,11 @@ clang++ main.cpp -E > main.E
 TODO
 
 ## qmake project
-
-TODO
-
+```
+qmake q-openmp-example.pro
+make -Bj16
+q-openmp-example.app/Contents/MacOS/q-openmp-example
+```
 # thinkos.pdf textbook notes
 
 Notes from the textbook.
