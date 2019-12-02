@@ -48,11 +48,27 @@ clang++ main.cpp -E > main.E
 TODO
 
 ## qmake project
+Requires that qt be installed using `homebrew` like so:
+```
+brew install qt5
+```
+or
+```
+brew upgrade qt5
+```
+Followed by
+```
+brew link qt5 --force
+```
+After that, in a command line run:
 ```
 qmake q-openmp-example.pro
 make -Bj16
 q-openmp-example.app/Contents/MacOS/q-openmp-example
 ```
+In `Qt Creator`, Need to open the `q-openmp-example.pro` file, with a kit that uses the `clang++`
+compiler.
+
 # thinkos.pdf textbook notes
 
 Notes from the textbook.
