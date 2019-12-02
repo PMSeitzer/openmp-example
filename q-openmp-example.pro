@@ -8,8 +8,6 @@ QMAKE_LINK=/usr/local/opt/llvm/bin/clang++
 QMAKE_CXXFLAGS += -fopenmp
 	
 QMAKE_LFLAGS += -fopenmp \
-	-I/usr/local/opt/llvm/include/ \
-	-I/usr/local/Cellar/llvm/9.0.0_1/lib/clang/9.0.0/include/ \
 	-L/usr/local/opt/llvm/lib
 
 SOURCES = \
@@ -17,8 +15,7 @@ SOURCES = \
 
 HEADERS=
 
-INCLUDEPATH=/usr/local/opt/llvm/include/ \
-	/usr/local/Cellar/llvm/9.0.0_1/lib/clang/9.0.0/include/ \
+INCLUDEPATH= /usr/local/Cellar/llvm/9.0.0_1/lib/clang/9.0.0/include/
 
 LIBS+= -L/usr/local/opt/llvm/lib/
 
