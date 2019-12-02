@@ -1,6 +1,3 @@
-1. [ Introduction ] (#intro)
-
-<a name="intro"></a>
 # Introduction
 
 This project serves as a basic template for developing multithreaded c++ code using
