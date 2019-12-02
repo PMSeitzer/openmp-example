@@ -7,3 +7,6 @@ openmp-example-O
 Openmp-example-O1
 Openmp-example-O2
 openmp-example-O3
+
+#qmake and cmake related
+.qmake.stash
