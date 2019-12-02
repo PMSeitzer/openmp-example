@@ -1,6 +1,3 @@
-# Created by and for Qt Creator This file was created for editing the project sources only.
-# You may attempt to use it for building too, by modifying this file here.
-
 TEMPLATE = app
 TARGET = q-openmp-example
 DESTDIR = $$PWD
@@ -14,8 +11,6 @@ SOURCES = \
    $$PWD/main.cpp
 
 HEADERS=
-
-# LDFLAGS+= -Wl,-rpath,/usr/local/opt/llvm/lib
 
 INCLUDEPATH=/usr/local/opt/llvm/include/ \
 	/usr/local/Cellar/llvm/9.0.0_1/lib/clang/9.0.0/include/ \
