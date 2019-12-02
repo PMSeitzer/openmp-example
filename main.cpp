@@ -9,14 +9,6 @@ int main(int argc, char *argv[])
     for (unsigned int i = 0; i < 10; i++) {
 
         #pragma omp critical
-	cout << "Hello from thread #" << omp_get_thread_num() << " (nthreads=" << omp_get_num_threads() << ")"<< endl;
-
-        //cout << "i=" << i << endl;
+        cout << "Hello from thread #" << omp_get_thread_num() << " (nthreads=" << omp_get_num_threads() << ")"<< endl;
     }
-
-
-//    QApplication a(argc, argv);
-//    ExampleOpenMP w;
-//    w.show();
-//    return a.exec();
 }
