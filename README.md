@@ -44,7 +44,7 @@ TODO
 ## qmake project
 TODO
 
-## `thinkos.pdf` textbook notes
+## thinkos.pdf textbook notes
 
 **Memory Segments**
 ```
