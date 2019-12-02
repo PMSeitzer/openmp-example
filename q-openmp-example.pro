@@ -16,10 +16,20 @@ SOURCES = \
    $$PWD/main.cpp
 HEADERS=
 
-# Note that this is easier for Qt Creator than /usr/local/opt/llvm/include/
+# 1.
+# Qt Creator shows compilation errors for
+# INCLUDEPATH=/usr/local/opt/llvm/include/
+# However, the command line qmake works with either INCLUDEPATH expression,
+# b/c /usr/local/opt/llvm/include --> usr/local/Cellar/llvm/9.0.0_1/lib/clang/9.0.0/include/
+#
+# An alternative solution to use the more general /usr/local/opt/llvm/include
+# would be to tell Qt Creator that these paths are the same.
+#
+# 2.
 # It is also possible to use
 # QMAKE_CXXFLAGS -I (includes)
 # QMAKE_LFFLAGS -L (libs)
+# Instead of setting the value of $$INCLUDEPATH and $$LIBS variables.
 INCLUDEPATH= /usr/local/Cellar/llvm/9.0.0_1/lib/clang/9.0.0/include/
 LIBS+= -L/usr/local/opt/llvm/lib/
 
