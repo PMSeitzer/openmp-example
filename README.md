@@ -1,13 +1,18 @@
-# This project serves as a basic template for developing multithreaded c++ code using
-the OpenMP library.
+# Introduction
 
-Creating multithreaded code references the `thinkos.pdf` textbook, chapter 1.
+This project serves as a basic template for developing multithreaded c++ code using
+the OpenMP library, as well as some notes from the `thinkos.pdf` textbook.
 
-# To build and execute
+A copy of the `thinkos.pdf` is included in this repository.
 
-## Plain Project
-Exploring different options available in the clang++ compiler
-(defers to gcc compiler)
+The various building option refer to the compiler options described in `thinkos.pdf` textbook, chapter 1.
+
+# Building and Executing
+
+The code can be built into executables using a variety of ways.
+
+## Plain
+Using the `clang++` compiler included with `llvm 9.0`.
 
 1.  Create executable
 ```
@@ -39,12 +44,16 @@ clang++ main.cpp -E > main.E
 ```
 
 ## cmake project
+
 TODO
 
 ## qmake project
+
 TODO
 
-## thinkos.pdf textbook notes
+# thinkos.pdf textbook notes
+
+Notes from the textbook.
 
 **Memory Segments**
 ```
