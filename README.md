@@ -1,3 +1,6 @@
+1.[Introduction] (#intro)
+
+<a name="intro"></a>
 # Introduction
 
 This project serves as a basic template for developing multithreaded c++ code using
@@ -9,7 +12,7 @@ The various building option refer to the compiler options described in `thinkos.
 
 # Building and Executing
 
-The code can be built into executables using a variety of ways.
+The code can be built into an executable using a variety of ways.
 
 ## Plain
 Using the `clang++` compiler included with `llvm 9.0`.
