@@ -9,4 +9,8 @@ Openmp-example-O2
 openmp-example-O3
 
 #qmake and cmake related
+Makefile
 .qmake.stash
+q-openmp-example.app/**
+q-openmp-example.pro
+q-openmp-example.pro.user
