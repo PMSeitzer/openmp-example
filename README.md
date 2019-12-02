@@ -1,4 +1,4 @@
-1.[Introduction] (#intro)
+1. [ Introduction ] (#intro)
 
 <a name="intro"></a>
 # Introduction
