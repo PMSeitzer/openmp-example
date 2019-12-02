@@ -12,5 +12,4 @@ openmp-example-O3
 Makefile
 .qmake.stash
 q-openmp-example.app/**
-q-openmp-example.pro
 q-openmp-example.pro.user
