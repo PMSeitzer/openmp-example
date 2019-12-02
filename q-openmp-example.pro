@@ -16,7 +16,7 @@ SOURCES = \
    $$PWD/main.cpp
 HEADERS=
 
-# Note that this is easier for Qt Creator than /usr/local/llvm/lib/include
+# Note that this is easier for Qt Creator than /usr/local/opt/llvm/include/
 # It is also possible to use
 # QMAKE_CXXFLAGS -I (includes)
 # QMAKE_LFFLAGS -L (libs)
