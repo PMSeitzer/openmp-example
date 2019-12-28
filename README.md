@@ -45,7 +45,8 @@ clang++ main.cpp -E > main.E
 
 ## cmake project
 
-TODO
+Requires that cmake be installed.
+[cmake download page](https://cmake.org/download/)
 
 ## qmake project
 Requires that qt be installed using `homebrew` like so:
