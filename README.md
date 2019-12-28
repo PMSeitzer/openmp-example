@@ -11,6 +11,8 @@ The various building option refer to the compiler options described in `thinkos.
 
 The code can be built into an executable using a variety of ways.
 
+All ways require the `clang++` compiler included with `llvm 9.0`: [llvm releases webpage](http://releases.llvm.org/download.html)
+
 ## Plain
 Using the `clang++` compiler included with `llvm 9.0`.
 
@@ -47,6 +49,12 @@ clang++ main.cpp -E > main.E
 
 Requires that cmake be installed:
 [cmake download page](https://cmake.org/download/)
+
+then, simply
+```
+cmake CMakeLists.txt
+make -Bj16
+```
 
 ## qmake project
 Requires that qt be installed using `homebrew` like so:
