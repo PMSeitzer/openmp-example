@@ -2,11 +2,8 @@ project(cmake-openmp-example)
 
 cmake_minimum_required(VERSION 3.1)
 
+#not strictly necessary, but good practice
 set(CMAKE_CXX_STANDARD 11)
-
-SET(SRC_LIST
-	main.cpp
-)
 
 #Need to specify appropriate compiler
 SET(CMAKE_CXX_COMPILER "/usr/local/opt/llvm/bin/clang++")
@@ -21,4 +18,5 @@ set(CMAKE_CXX_FLAGS "-fopenmp")
 #
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -L/usr/local/opt/llvm/lib/")
 
-add_executable(${PROJECT_NAME} MAIN.cpp ${SRC_LIST})
+#only one source file
+add_executable(${PROJECT_NAME} main.cpp)
