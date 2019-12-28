@@ -13,3 +13,8 @@ Makefile
 .qmake.stash
 q-openmp-example.app/**
 q-openmp-example.pro.user
+.q-openmp-example.pro.swp
+CMakeCache.txt
+CMakeFiles/
+CMakeLists.txt.user
+cmake_install.cmake
