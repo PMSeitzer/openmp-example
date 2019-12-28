@@ -18,3 +18,4 @@ CMakeCache.txt
 CMakeFiles/
 CMakeLists.txt.user
 cmake_install.cmake
+cmake-openmp-example
