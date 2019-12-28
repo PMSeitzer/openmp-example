@@ -45,7 +45,7 @@ clang++ main.cpp -E > main.E
 
 ## cmake project
 
-Requires that cmake be installed.
+Requires that cmake be installed:
 [cmake download page](https://cmake.org/download/)
 
 ## qmake project
