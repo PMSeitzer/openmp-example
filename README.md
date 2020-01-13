@@ -92,6 +92,12 @@ sudo ln -s /usr/local/Cellar/qt/5.13.2/mkspecs /usr/local/mkspecs
 sudo ln -s /usr/local/Cellar/qt/5.13.2/plugins/ /usr/local/plugins
 ```
 
+`QT` libraries could have been incorporated in the `CMakeLists.txt` file using this syntax:
+
+```
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
+```
+
 # thinkos.pdf textbook notes
 
 Notes from the textbook.
