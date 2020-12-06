@@ -21,3 +21,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -L/usr/local/opt/llvm/lib/")
 #only one source file
 add_executable(${PROJECT_NAME} main.cpp)
 add_executable(PS5_problem2 PS5_problem2.cpp)
+add_executable(PS5_problem4 PS5_problem4.cpp)
