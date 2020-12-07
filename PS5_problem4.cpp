@@ -18,22 +18,32 @@ struct thread_data{
    int *output_array;
    int *output_lock_array;
 
+   int thread_num;
    pthread_cond_t  cv;
    pthread_mutex_t mutex;
-   int     flag;
+
+   //this gets passed around through functions, so must be a pointer!
+   int *flag;
 };
 
 static struct thread_data thread_data_array[NUM_THREADS];
 
-void P(int* output_lock_array_ptr){
+void P(int* output_lock_array_ptr, int thread_num){
+
+    cout << "P("
+         << thread_num
+         << "): data @ thread_data_array[" << *output_lock_array_ptr
+         << "] flag=" << thread_data_array[*output_lock_array_ptr].flag
+         << endl;
 
     //lock this thread in preparation for exclusive access
     pthread_mutex_lock(&thread_data_array[*output_lock_array_ptr].mutex);
 
+    cout << "P(" << thread_num << ") locked." << endl;
     //note that while loop is only entered if this part of the array is unavailable
 
     //check that this coordinate in the output array is not currently being accessed
-    while (thread_data_array[*output_lock_array_ptr].flag == 0) {
+    while (*(thread_data_array[*output_lock_array_ptr].flag) == 0) {
 
         /* When the current thread executes this
          * pthread_cond_wait() statement, the
@@ -51,13 +61,19 @@ void P(int* output_lock_array_ptr){
     /* This will cause all other threads
      * that executes a P() call to wait
      * in the (above) while-loop !!! */
-    thread_data_array[*output_lock_array_ptr].flag = 0;
+    *(thread_data_array[*output_lock_array_ptr].flag) = 0;
+
+    cout << "P(" << thread_num << ") flag set to 0." << endl;
 
     //release lock in preparation for access
     pthread_mutex_unlock(&thread_data_array[*output_lock_array_ptr].mutex);
+
+    cout << "P(" << thread_num << ") unlocked." << endl;
 }
 
 void V(int* output_lock_array_ptr) {
+
+    cout << "V(" << *output_lock_array_ptr << ")" << endl;
 
     //lock this thread in preparation for exclusive access
     pthread_mutex_lock(&thread_data_array[*output_lock_array_ptr].mutex);
@@ -70,7 +86,7 @@ void V(int* output_lock_array_ptr) {
     pthread_cond_signal(&thread_data_array[*output_lock_array_ptr].cv);
 
     /* Update semaphore state to Up */
-    thread_data_array[*output_lock_array_ptr].flag = 1;
+    *(thread_data_array[*output_lock_array_ptr].flag) = 1;
 
     //release lock in preparation for access
     pthread_mutex_unlock(&thread_data_array[*output_lock_array_ptr].mutex);
@@ -89,8 +105,14 @@ void count_all(int input_array_size, int *input_array, int *output_array, int *o
 
         cout << "processing entry #" << counter << ", with value=" << input_array[counter] << endl;
 
+        int thread_data_pos = output_lock_array[counter];
+
+        cout << "Thread Data:"
+             << "Thread #" << thread_data_array[thread_data_pos].thread_num
+             << endl;
+
         //change flag state
-        P(&output_lock_array[counter]);
+        P(&output_lock_array[counter], thread_data_array[thread_data_pos].thread_num);
 
         //thread-safe work
         output_array[input_array[counter]]++;
@@ -123,10 +145,13 @@ int main(int argc, char *argv[]){
     }
 
     for(counter = 0; counter < NUM_THREADS; counter++){
+
         thread_data_array[counter].input_array_size = INPUT_ARRAY_ELEMENTS / NUM_THREADS;
         thread_data_array[counter].input_array = &input_array[INPUT_ARRAY_ELEMENTS / NUM_THREADS * counter];
         thread_data_array[counter].output_array = output_array;
         thread_data_array[counter].output_lock_array = output_lock_array;
+        thread_data_array[counter].thread_num = counter;
+        thread_data_array[counter].flag = new int(1); //initialize to all access.
 
         pthread_mutex_unlock(&thread_data_array[counter].mutex);
 
