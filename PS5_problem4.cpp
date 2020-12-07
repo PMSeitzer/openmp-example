@@ -6,7 +6,7 @@
 #include <thread>
 #include <stdlib.h>
 #define MAX_VALUE 1023
-#define NUM_THREADS 100
+#define NUM_THREADS 1//100
 #define INPUT_ARRAY_ELEMENTS (1024*1024*512)  // 512 million entries
 
 using namespace std;
@@ -48,6 +48,9 @@ void count_all(int input_array_size, int *input_array, int *output_array, int *o
 
         //retrieve an exclusive lock to this cord in output_array
         //waiting on other threads, if necessary
+
+        cout << "processing entry #" << counter << ", with value=" << input_array[counter] << endl;
+
         P(&output_lock_array[counter]);
 
         //thread-safe work
@@ -68,8 +71,8 @@ int main(int argc, char *argv[]){
 
     int counter;
     pthread_t threads[NUM_THREADS];
-    int *input_array;
-    input_array = static_cast<int*>(malloc(INPUT_ARRAY_ELEMENTS*sizeof(int)));
+
+    int *input_array = static_cast<int*>(malloc(INPUT_ARRAY_ELEMENTS*sizeof(int)));
 
     // this would be a good place to read a file into input_array
     int *output_array = static_cast<int*>(malloc((MAX_VALUE + 1) * sizeof(int)));
@@ -80,7 +83,7 @@ int main(int argc, char *argv[]){
        output_lock_array[counter] = 1;
     }
 
-    for(counter = 0; counter < 100; counter++){
+    for(counter = 0; counter < NUM_THREADS; counter++){
         thread_data_array[counter].input_array_size = INPUT_ARRAY_ELEMENTS / NUM_THREADS;
         thread_data_array[counter].input_array = &input_array[INPUT_ARRAY_ELEMENTS / NUM_THREADS * counter];
         thread_data_array[counter].output_array = output_array;
@@ -88,7 +91,7 @@ int main(int argc, char *argv[]){
 
         pthread_create(&threads[counter], nullptr, function_starter, static_cast<void*>(&(thread_data_array[counter])));
     }
-    for(counter = 0; counter < 100; counter++){
+    for(counter = 0; counter < NUM_THREADS; counter++){
         void *dummy;
         pthread_join(threads[counter], &dummy);
     }
