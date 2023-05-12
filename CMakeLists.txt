@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 11)
 SET(CMAKE_CXX_COMPILER "/usr/local/opt/llvm/bin/clang++")
 
 #Special openMP compiler flag is necessary to build multithreaded applications
-set(CMAKE_CXX_FLAGS "-fopenmp")
+set(CMAKE_CXX_FLAGS "-fopenmp -pthread")
 
 # Necessary for Qt Creator
 # commenting out causes linker error:
@@ -20,3 +20,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -L/usr/local/opt/llvm/lib/")
 
 #only one source file
 add_executable(${PROJECT_NAME} main.cpp)
+add_executable(PS5_problem2 PS5_problem2.cpp)
+add_executable(PS5_problem4 PS5_problem4.cpp)

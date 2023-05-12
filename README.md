@@ -56,6 +56,13 @@ cmake CMakeLists.txt
 make -Bj16
 ```
 
+If you plan on using standard library functions, Qt Creator sometimes
+gets confused about which c++ lib to use. Specify this as an include flag:
+
+```
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -I/usr/local/opt/llvm/include/c++/v1/")
+```
+
 ## qmake project
 Requires that qt be installed using `homebrew` like so:
 ```
@@ -75,8 +82,30 @@ qmake q-openmp-example.pro
 make -Bj16
 q-openmp-example.app/Contents/MacOS/q-openmp-example
 ```
+
 In `Qt Creator`, Need to open the `q-openmp-example.pro` file, with a kit that uses the `clang++`
 compiler.
+
+## Telling cmake about qt5
+
+`cmake` worked smoothly here in Qt Creator, b/c no `QT` libraries were actually used.
+
+However, Qt Creator can have a hard time finding installed `QT` libraries:
+[homebrew configuration issue](https://github.com/Homebrew/homebrew-core/issues/8392)
+
+This can be solved by creating some symbolic links in `/usr/local/`:
+
+```
+sudo ln -s /usr/local/Cellar/qt/5.13.2/mkspecs /usr/local/mkspecs
+sudo ln -s /usr/local/Cellar/qt/5.13.2/plugins/ /usr/local/plugins
+```
+
+`QT` libraries could have been incorporated in the `CMakeLists.txt` file using this syntax:
+
+
+```
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
+```
 
 # thinkos.pdf textbook notes
 

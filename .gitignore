@@ -19,3 +19,7 @@ CMakeFiles/
 CMakeLists.txt.user
 cmake_install.cmake
 cmake-openmp-example
+
+# executables
+PS5_problem2
+PS5_problem4
