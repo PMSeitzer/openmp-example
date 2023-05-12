@@ -30,6 +30,6 @@ HEADERS=
 # QMAKE_CXXFLAGS -I (includes)
 # QMAKE_LFFLAGS -L (libs)
 # Instead of setting the value of $$INCLUDEPATH and $$LIBS variables.
-INCLUDEPATH= /usr/local/Cellar/llvm/9.0.0_1/lib/clang/9.0.0/include/
+INCLUDEPATH=/usr/local/Cellar/llvm/15.0.7_1/lib/clang/15.0.7/include
 LIBS+= -L/usr/local/opt/llvm/lib/
 
